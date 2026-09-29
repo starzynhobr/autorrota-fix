@@ -26,6 +26,12 @@ Detalhes, endereços e evidências: [`docs/nota-tecnica.md`](docs/nota-tecnica.m
 
 Para desativar, remova ou renomeie `version.dll`.
 
+### Antes de copiar: já existe `version.dll` na pasta?
+
+Esta DLL **não é uma cópia alterada** da `version.dll` do Windows (que continua intacta em `System32`); é um arquivo novo que só existe na pasta do jogo. Normalmente não há nenhuma `version.dll` ali.
+
+Se já houver uma, ela pertence a outro mod ou ao loader do seu servidor, e **substituí-la vai desativá-lo**. Nesse caso não copie por cima: integre a função `RetryWithNearbyOrigin` e o hook de [`src/autoroute_fix.c`](src/autoroute_fix.c) no loader existente, ou peça isso a quem mantém o cliente.
+
 ## Compatibilidade
 
 | Executável | SHA-256 | Estado |
